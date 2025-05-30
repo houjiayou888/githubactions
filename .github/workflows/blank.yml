@@ -47,5 +47,4 @@ jobs:
         id: checkout
         uses: houjiayou888/actions/codearts-checkout@dev
         with:
-         
-      
+          hello-world: ${{ inputs.source-directory }}
