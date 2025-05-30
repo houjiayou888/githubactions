@@ -43,9 +43,9 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v4
-      - name: 使用自定义 Action
-        id: meact
-        uses: wzjerrywz/meact@v0.0.2
+      - name: 使用自定义 checkout Action
+        id: checkout
+         uses: houjiayou888/actions/codearts-checkout@dev
         with:
           hello-world: ${{ inputs.source-directory }}
       
