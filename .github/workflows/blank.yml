@@ -43,8 +43,14 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v4
-      - name: 使用自定义 checkout Action
-        id: checkout
+      - name: 使用自定义 setupmaven Action
+        id: setupmaven
         uses: houjiayou888/actions/codearts-setup-maven@dev
         with:
           maven_version: '3.9.6'
+      - name: 使用自定义 mavenbuild Action
+        id: mavenbuild
+        uses: houjiayou888/actions/codearts-maven-build@dev
+        with:
+          maven-command: 'mvn package -Dmaven.test.skip=true -U -e -X -B'
+          continue-on-failure: true
