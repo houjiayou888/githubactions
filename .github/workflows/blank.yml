@@ -41,8 +41,16 @@ jobs:
     environment: ${{ inputs.source-directory }} 
     runs-on: ubuntu-latest
     steps:
-      - name: checkout
-        uses: actions/checkout@v4
+      - name: 使用自定义checkout
+        uses: houjiayou888/actions/codearts-checkout@dev
+         with:
+           repository: 'https://gitee.com/perfbenchmark/tone-agent-proxy.git'
+           ref_type: 'branch'
+           ref_value:  'v1.11.0'
+           target_path: '.'
+           recurse_submodules: false
+           custom_depth: ''
+           enable_lfs: false
       - name: 使用自定义 setupmaven Action
         id: setupmaven
         uses: houjiayou888/actions/codearts-setup-maven@dev
